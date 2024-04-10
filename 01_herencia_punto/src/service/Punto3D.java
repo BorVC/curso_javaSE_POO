@@ -13,7 +13,7 @@ public class Punto3D extends Punto{
 	//Sobrecarga de constructores
 	
 	public Punto3D(int x, int y, int z) {
-		super(x, y);//trae los valores x,y de la clase punto
+		super(x, y);//trae los atributos y sus posibles valores(ene este caso son 5,10) x,y de la clase punto
 		this.z = z;
 	}
 
