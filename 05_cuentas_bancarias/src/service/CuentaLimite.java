@@ -26,14 +26,14 @@ public class CuentaLimite extends Cuenta{
 	
 	@Override
 	public void extraer(double cantidad) {
-		if(cantidad < limite) {//No s puede sacar mas de la mitad de lo que tenga la cuenta
+		if(cantidad <= limite) {//No se puede sacar mas de la mitad de lo que tenga la cuenta
 		super.extraer(cantidad);
 		}
 	}
 	
-	public void ajustarLimite() {
+	public double ajustarLimite() {
 		limite = getSaldo() / 2;//
-		
+		return limite;
 	}
 
 	
