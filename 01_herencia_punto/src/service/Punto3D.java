@@ -2,7 +2,7 @@ package service;
 
 public class Punto3D extends Punto{
 	
-	public int z;
+	private int z;
 	
 	//Constructor
 	public Punto3D(int z) {
@@ -26,5 +26,17 @@ public class Punto3D extends Punto{
 	
 	public void  setZ(int z) {
 		this.z = z;
+	}
+	/*@Override
+	public void imprimir() {
+		System.out.println("Las coordenadas son: " + getX() + getY() + z);
+	}*/
+
+	//Con funciones eclipse con Source @Override
+	@Override
+	public void imprimir() {
+		// TODO Auto-generated method stub
+		super.imprimir();//Llamda al método de la superclase o clase padre
+		System.out.println("," + z);//Añadir nueva función (Sobreescribir método imprimir();)
 	}
 }
