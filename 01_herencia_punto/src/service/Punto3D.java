@@ -36,7 +36,11 @@ public class Punto3D extends Punto{
 	@Override
 	public void imprimir() {
 		// TODO Auto-generated method stub
-		super.imprimir();//Llamda al método de la superclase o clase padre
+		/*//Llamda al método de la superclase o clase padre.
+		 * Utiliza super porque si no la llamada al método sería recursiva.
+		 * Llamaría al propio método imprimir definido en esta clase
+		 */
+		super.imprimir();
 		System.out.println("," + z);//Añadir nueva función (Sobreescribir método imprimir();)
 	}
 }

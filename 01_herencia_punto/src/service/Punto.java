@@ -33,6 +33,9 @@ public class Punto {
 		this.y = y;
 	}
 	
+	/*Modificadores de acceso.Si no tubiera ambito (public / private) solo se podria usar en el mismo paquete en el 
+	 * que se encuentra la clase
+	 */
 	public void imprimir() {
 		System.out.println("Las coordenadas son " + x + ","+ y);
 	}
