@@ -27,7 +27,7 @@ public class CuentaVista {
 					mostrarinfo();
 				break;
 				case 4: 
-					System.out.println("Gracias. Le esperamos pronto");
+					System.out.println("Gracias!!!. Le esperamos pronto");
 				break;
 				default:
 					System.out.println("La opcoión elegida no es valida");
@@ -54,7 +54,7 @@ public class CuentaVista {
 		System.out.println("Cantidad a ingresar:");
 		double cantidad = Double.parseDouble(scn.next());
 		service.ingresar(cantidad);
-		service.setLimite(service.ajustarLimite());
+		service.ajustarLimite();
 		
 	}
 	
@@ -64,7 +64,7 @@ public class CuentaVista {
 		double cantidad = Double.parseDouble(scn.next());
 		if(cantidad <= service.getLimite()) {
 			service.extraer(cantidad);
-			service.setLimite(service.ajustarLimite());
+			service.ajustarLimite();
 		}else {
 		System.out.println("La cantidad que desea retirar excede el límite permitido. \nLIMITE: " + service.getLimite());
 		}

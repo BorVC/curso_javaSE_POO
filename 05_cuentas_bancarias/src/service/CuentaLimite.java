@@ -31,9 +31,9 @@ public class CuentaLimite extends Cuenta{
 		}
 	}
 	
-	public double ajustarLimite() {
+	public void ajustarLimite() {
 		limite = getSaldo() / 2;//
-		return limite;
+		
 	}
 
 	
