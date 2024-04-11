@@ -1,4 +1,4 @@
-package principal;
+package service;
 
 import java.util.ArrayList;
 
@@ -55,12 +55,6 @@ public class ListNumber extends ArrayList<Integer>{
 			return super.add(e);
 		}
 		return false;
-	}
-
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
