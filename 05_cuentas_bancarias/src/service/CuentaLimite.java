@@ -25,9 +25,9 @@ public class CuentaLimite extends Cuenta{
 	}
 	
 	@Override
-	public void extraer(double cantidad) {
+	public void extraer(double cantidad) {//Sobreescritura de método heredado
 		if(cantidad <= limite) {//No se puede sacar mas de la mitad de lo que tenga la cuenta
-		super.extraer(cantidad);
+		super.extraer(cantidad);//Función del método de la super clase.Utiliza su fincionalidad
 		}
 	}
 	
