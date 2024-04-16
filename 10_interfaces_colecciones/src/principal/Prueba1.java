@@ -23,6 +23,9 @@ public class Prueba1 {
 		numeros.add(18);
 		
 		System.out.println("Con Vector:" +sumaPares(numeros));
+		
+		List<Integer> nums3 = List.of(40,2,11,8,31,41);//Método static de la interface List
+		System.out.println("Con interface List utilizando método estático of()" + sumaPares(nums3));
 
 	}
 	
