@@ -33,8 +33,10 @@ public class AppNumeros {
 		
 		OperacionesService service = new OperacionesService();
 		Positivo pos = new Positivo();
+		Pares par = new Pares();
 		
 		System.out.println("Suma positivos: " + service.sumarPorCondicion(numeros,pos));
+		System.out.println("Suma positivos: " + service.sumarPorCondicion(numeros,par));
 	}
 	
 	
