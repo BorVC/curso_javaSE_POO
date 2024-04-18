@@ -38,6 +38,7 @@ public class ProductoService extends Producto {
 	public void obtenerProductos(){
 		productos.forEach(producto -> System.out.println("Nobre: " + producto.getNombre() +
 		                                                 "Precio: " + producto.getPrecio() +
-		                                                 "Categoría: " + producto.getCategoria()));
+		                                                 "Categoría: " + producto.getCategoria() +
+		                                                 "-------------------------------------"));
 	}
 }
