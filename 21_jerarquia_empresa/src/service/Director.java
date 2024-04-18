@@ -1,6 +1,7 @@
 package service;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Director extends Empleado {
 
@@ -40,9 +41,13 @@ public class Director extends Empleado {
 
 	@Override
 	public void incentivar() {
-		
-		if(getPersonal() > 20 && )
-		
+		Period periodo = Period.between(getFechaIngreso(),LocalDate.now());
+		if(getPersonal() > 20 && periodo.toTotalMonths() > 30) {
+			this.setSalario(this.getSalario() + (BONO * 2));
+		}
+		if (getPersonal() > 20 || periodo.toTotalMonths() > 30) {
+			this.setSalario(this.getSalario() + BONO);
+		}
 	}
 	
 	

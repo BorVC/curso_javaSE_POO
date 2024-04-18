@@ -1,6 +1,7 @@
 package service;
 
 import java.time.LocalDate;
+import java.time.Period;
 
 public class Operario extends Empleado {
 	
@@ -11,6 +12,10 @@ public class Operario extends Empleado {
 	public Operario(String nombre, int edad, LocalDate fechaIngreso, double salario, int nivel) {
 		super(nombre, edad, fechaIngreso, salario);
 		this.nivel = nivel;
+	}
+	
+	public Operario() {
+		super();
 	}
 	
 	
@@ -25,16 +30,19 @@ public class Operario extends Empleado {
 	@Override
 	public void incentivar() {
 		if(this.getEdad() > 30 && this.getNivel() > 2) {
-			this.setSalario(BONO);
+			this.setSalario(this.getSalario() + (BONO * 2));
+		}
+		if(this.getEdad() > 30 || this.getNivel() > 2) {
+			this.setSalario(this.getSalario() + BONO);
 		}
 		
 	}
-	
+
 	public void actualizarNivel() {
-		LocalDate fecha = 
-		if(this.getFechaIngreso().compareTo(LocalDate.now() > )) {
+		Period periodo = Period.between(getFechaIngreso(), LocalDate.now()); 
+		if(periodo.getYears() > 2) {
 			if(this.getNivel() < 5) {
-				this.setNivel(5);
+				this.setNivel(this.getNivel() + 1);
 			}
 		}
 	}
