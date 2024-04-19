@@ -36,7 +36,7 @@ public class Operario extends Empleado {
 		if(this.getEdad() > 30 && this.getNivel() > 2) {
 			this.setSalario(this.getSalario() + (BONO * 2));
 		}
-		if(this.getEdad() > 30 || this.getNivel() > 2) {
+		else if(this.getEdad() > 30 || this.getNivel() > 2) {
 			this.setSalario(this.getSalario() + BONO);
 		}
 		
@@ -49,6 +49,15 @@ public class Operario extends Empleado {
 				this.setNivel(this.getNivel() + 1);
 			}
 		}
+		//Profesor
+		/*Period period=Period.between(getFechaIngreso(), LocalDate.now().plusDays(1));
+		if(period.toTotalMonths()>24&&this.nivel<5) {
+			this.nivel++;
+		}*/
+		/*long years=ChronoUnit.YEARS.between(getFechaIngreso(), LocalDate.now().plusDays(1));
+		if(years>=2&&this.nivel<5) {
+			this.nivel++;
+		}*/
 	}
 
 }

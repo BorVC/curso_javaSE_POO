@@ -45,7 +45,7 @@ public class Director extends Empleado {
 		if(getPersonal() > 20 && periodo.toTotalMonths() > 30) {
 			this.setSalario(this.getSalario() + (BONO * 2));
 		}
-		if (getPersonal() > 20 || periodo.toTotalMonths() > 30) {
+		else if (getPersonal() > 20 || periodo.toTotalMonths() > 30) {
 			this.setSalario(this.getSalario() + BONO);
 		}
 	}
