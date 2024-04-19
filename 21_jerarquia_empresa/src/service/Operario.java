@@ -11,7 +11,11 @@ public class Operario extends Empleado {
 
 	public Operario(String nombre, int edad, LocalDate fechaIngreso, double salario, int nivel) {
 		super(nombre, edad, fechaIngreso, salario);
+		if(nivel <= 5 && nivel >=1) {
 		this.nivel = nivel;
+		}else {
+			this.nivel = 1;
+		}
 	}
 	
 	public Operario() {
