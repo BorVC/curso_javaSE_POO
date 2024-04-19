@@ -17,16 +17,16 @@ class TestDirector {
 	
 	@Test
 	void testIncentivar2() {
-		Director dir = new Director("a",10,LocalDate.of(2000, 1, 30),2000,"d",30);
+		Director dir = new Director("a",10,LocalDate.of(2000, 1, 30),2000,"d",20);
 		dir.incentivar();
-		assertEquals(5000,dir.getSalario());
+		assertEquals(3500,dir.getSalario());
 	}
 	
 	@Test
 	void testIncentivar3() {
-		Director dir = new Director("a",10,LocalDate.of(2000, 1, 30),2000,"d",10);
+		Director dir = new Director("a",10,LocalDate.of(2023, 1, 30),2000,"d",10);
 		dir.incentivar();
-		assertEquals(3500,dir.getSalario());
+		assertEquals(2000,dir.getSalario());
 	}
 
 }
