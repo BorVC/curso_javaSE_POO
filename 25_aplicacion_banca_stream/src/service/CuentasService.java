@@ -31,4 +31,6 @@ public class CuentasService extends Cuenta{
 	public int cuentasPorDivisa(String divisa) {
 		return (int)cuentas.stream().filter(c -> c.getDivisa().equals(divisa)).count();
 	}
+	
+	//método q a partir de una fecha indique cuantas cuentas se crearon desde esa fecha
 }
