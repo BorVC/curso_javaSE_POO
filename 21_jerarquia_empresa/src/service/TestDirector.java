@@ -24,7 +24,7 @@ class TestDirector {
 	
 	@Test
 	void testIncentivar3() {
-		Director dir = new Director("a",10,LocalDate.of(2023, 1, 30),2000,"d",10);
+		Director dir = new Director("a",10,LocalDate.now().minusMonths(10),2000,"d",10);
 		dir.incentivar();
 		assertEquals(2000,dir.getSalario());
 	}

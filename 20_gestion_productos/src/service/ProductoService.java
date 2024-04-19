@@ -41,4 +41,11 @@ public class ProductoService extends Producto {
 		                                                 "Categoría: " + producto.getCategoria() +
 		                                                 "-------------------------------------"));
 	}
+	
+	public void ordenarPorPrecio() {
+		//Double.compare xq precio es de tipo primitivo
+		productos.sort((a,b) -> Double.compare(a.getPrecio(), b.getPrecio()));
+	}
+	
+	
 }
