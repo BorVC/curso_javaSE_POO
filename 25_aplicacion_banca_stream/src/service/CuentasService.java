@@ -27,10 +27,15 @@ public class CuentasService extends Cuenta{
 		return cuentas.stream().anyMatch(c -> c.getNumeroCuenta().equals(numCuenta));
 	}
 	
-	//método q a partir de divisa nos dice cuantas cuentas hay de dicha cuenta
+	//método q a partir de divisa nos dice cuantas cuentas hay de dicha divisa
+	
 	public int cuentasPorDivisa(String divisa) {
 		return (int)cuentas.stream().filter(c -> c.getDivisa().equals(divisa)).count();
 	}
 	
 	//método q a partir de una fecha indique cuantas cuentas se crearon desde esa fecha
+	
+	public int cuentasDesdeFecha(LocalDate fecha) {
+		return (int)cuentas.stream().filter(cuenta -> cuenta.getFechaApertura().isAfter(fecha)).count();
+	}
 }
