@@ -2,7 +2,11 @@ package service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 import model.Cuenta;
 
@@ -30,12 +34,63 @@ public class CuentasService extends Cuenta{
 	//método q a partir de divisa nos dice cuantas cuentas hay de dicha divisa
 	
 	public int cuentasPorDivisa(String divisa) {
-		return (int)cuentas.stream().filter(c -> c.getDivisa().equals(divisa)).count();
+		return (int)cuentas.stream().filter(c -> c.getDivisa().equalsIgnoreCase(divisa)).count();
 	}
+	
+	//método q a partir de divisa nos dice las  cuentas q  hay de dicha divisa
+	
+		public List<Cuenta> listaCuentasPorDivisa(String divisa) {
+			return cuentas.stream().filter(c -> c.getDivisa().equalsIgnoreCase(divisa))
+					//.collect(Collectors.toList());//Devuelve un listado con todas ellas
+					.toList();//Devuelve un listado con todas ellas
+		}
+		
+	//método q devuelva un Map con los números de cuenta como claves y saldo como valor
+	public Map<String , Double> mapCuentasPorSaldo() {
+		return cuentas.stream()
+				.collect(Collectors.toMap(c -> c.getNumeroCuenta(), c -> c.getSaldo()));
+	}
+	
+	//método que devuelve una tabla de cuentas agrupadas por divisa:
+		public Map<String,List<Cuenta>> cuentasPorDivisa(){
+			return cuentas.stream()
+					.collect(Collectors.groupingBy(c->c.getDivisa()));
+		}
 	
 	//método q a partir de una fecha indique cuantas cuentas se crearon desde esa fecha
 	
 	public int cuentasDesdeFecha(LocalDate fecha) {
-		return (int)cuentas.stream().filter(cuenta -> cuenta.getFechaApertura().isAfter(fecha)).count();
+		return (int)cuentas.stream().filter(cuenta -> cuenta.getFechaApertura()
+				.isAfter(fecha)).count();
 	}
+	
+	//método q devuelve la cuenta asociada a un determinado número
+	public Cuenta buscarCuenta(String numero) {
+		return cuentas.stream().filter(cuenta -> cuenta.getNumeroCuenta().equals(numero))
+				.findFirst()//Optiona Cuenta
+				.orElse(null);
+	}
+	
+	//método q devuelve la cuenta asociada a un determinado titular
+	public Optional<Cuenta> buscarCuentaportitular(String titular) {
+		//devuelve la cuenta dando la posibilidad de dar diferentes mensajes en la
+		//capa de 
+		return cuentas.stream().filter(cuenta -> cuenta.getTitular().equals(titular))
+				.findFirst();//Optional Cuenta
+	}
+	
+	
+	//método q devuelva la cuenta con menor saldo
+	public Cuenta cuentaMenorSaldo() {
+//		return cuentas.stream().sorted((a,b) -> Double.compare(a.getSaldo(), b.getSaldo()))
+//				.findFirst()
+//				.orElse(null);
+		/*return cuentas.stream().min((a,b) -> Double.compare(a.getSaldo(), b.getSaldo()))
+				.orElse(null);*/
+		return cuentas.stream().min(Comparator.comparingDouble(cuenta -> cuenta.getSaldo()))
+				.orElse(null);
+	}
+	
+	
+		
 }
