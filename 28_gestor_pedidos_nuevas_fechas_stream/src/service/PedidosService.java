@@ -45,15 +45,15 @@ public class PedidosService {
 		return aux;*/
 		
 		return pedidos.stream()
-				.filter(p -> p.getFechaPedido().compareTo(f1) >= 0 && p.getFechaPedido().compareTo(f2))
+				.filter(p -> p.getFechaPedido().compareTo(f1)>=0 && p.getFechaPedido().compareTo(f2)<=0)
 				.collect(Collectors.toList());
 	}
 	
 	public Pedido pedidoProximoFecha(LocalDate fecha) {
 		/*Pedido pAux=new Pedido();
 		pAux.setFechaPedido(LocalDate.of(1, 1, 1));
-		//comparamos la diferencia de días entre la fecha de cada pedido y la 
-		//parámetro, con la diferencia de días entre la fecha auxiliar y la parámetro
+		//comparamos la diferencia de días entre la fecha de cada pedido y la del
+		//parámetro, con la diferencia de días entre la fecha auxiliar y la del parámetro
 		//si la del pedido es inferior, actualizamos la variable pedido auxiliar
 		for(Pedido p:pedidos) {
 			if(Math.abs(ChronoUnit.DAYS.between(p.getFechaPedido(), fecha))<
@@ -62,5 +62,9 @@ public class PedidosService {
 			}
 		}
 		return pAux;*/
+		
+		return pedidos.stream()
+				.filter(p -> Math.abs(ChronoUnit.DAYS.between(p.getFechaPedido(), fecha)))
+				;
 	}
 }
